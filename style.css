@@ -1,0 +1,731 @@
+/* ===== BLACK SKY - COSMIC THEME ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+    --primary-black: #000000;
+    --deep-space: #0a0a0a;
+    --cosmic-blue: #00d4ff;
+    --neon-cyan: #00ffff;
+    --electric-purple: #9d4edd;
+    --star-glow: #ffffff;
+    --text-light: #e0e0e0;
+    --text-dim: #a0a0a0;
+}
+
+/* ===== GLOBAL RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--primary-black);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ===== PARTICLE BACKGROUND ===== */
+#particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ===== SECTION STYLING ===== */
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    position: relative;
+    opacity: 0;
+    animation: fadeInSection 1.2s ease forwards;
+}
+
+@keyframes fadeInSection {
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+/* ===== OPENING SCENE ===== */
+#opening {
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+}
+
+.content-center {
+    text-align: center;
+    z-index: 1;
+}
+
+.title-main {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8rem;
+    font-weight: 900;
+    letter-spacing: 20px;
+    background: linear-gradient(45deg, var(--cosmic-blue), var(--neon-cyan), var(--electric-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+    text-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+}
+
+.subtitle {
+    font-size: 2rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.quote {
+    font-size: 1.3rem;
+    color: var(--text-dim);
+    max-width: 800px;
+    margin: 0 auto 60px;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+/* ===== FADE-IN ANIMATIONS ===== */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.fade-in-delay-2 {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===== BUTTON STYLING ===== */
+.enter-btn {
+    padding: 20px 50px;
+    font-size: 1.2rem;
+    font-family: 'Orbitron', sans-serif;
+    background: transparent;
+    color: var(--cosmic-blue);
+    border: 2px solid var(--cosmic-blue);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+.enter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--cosmic-blue);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.enter-btn:hover::before {
+    left: 0;
+}
+
+.enter-btn:hover {
+    color: var(--primary-black);
+    box-shadow: 0 0 30px var(--cosmic-blue);
+}
+
+/* ===== SECTION TITLES ===== */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, var(--cosmic-blue), var(--electric-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 5px;
+}
+
+.section-subtitle {
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--text-dim);
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+/* ===== ESSENCE SECTION ===== */
+.essence-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.philosophy-text {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 2.2;
+    color: var(--text-light);
+    max-width: 900px;
+}
+
+.galaxy-visual {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    animation: rotate360 20s linear infinite;
+}
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== MIND SECTION ===== */
+.mind-content {
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--text-light);
+}
+
+.highlight {
+    color: var(--cosmic-blue);
+    font-weight: 700;
+    text-shadow: 0 0 10px var(--cosmic-blue);
+}
+
+.details-text {
+    font-size: 1.3rem;
+    color: var(--text-dim);
+    margin-bottom: 40px;
+    line-height: 2;
+}
+
+.quote-text {
+    font-size: 1.5rem;
+    color: var(--electric-purple);
+    font-style: italic;
+    margin-bottom: 80px;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 60px;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.milestone {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    position: relative;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    background: var(--cosmic-blue);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 20px var(--cosmic-blue);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+.milestone-content h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: var(--cosmic-blue);
+    margin-bottom: 10px;
+}
+
+.milestone-content p {
+    font-size: 1rem;
+    color: var(--text-dim);
+}
+
+/* ===== CREATIONS/PROJECTS ===== */
+.projects-constellation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 60px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+}
+
+.project-star {
+    width: 300px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+    position: relative;
+}
+
+.project-star:hover {
+    transform: translateY(-20px);
+}
+
+.star-glow {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, var(--neon-cyan) 0%, transparent 70%);
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    box-shadow: 0 0 40px var(--neon-cyan);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 40px var(--neon-cyan);
+    }
+    50% {
+        box-shadow: 0 0 80px var(--neon-cyan), 0 0 120px var(--neon-cyan);
+    }
+}
+
+.project-info h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: var(--cosmic-blue);
+    margin-bottom: 15px;
+}
+
+.project-info p {
+    font-size: 1rem;
+    color: var(--text-dim);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* ===== FRONTIER/ORBIT SECTION ===== */
+.orbit-system {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 80px auto;
+}
+
+.central-node {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: var(--electric-purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--star-glow);
+    box-shadow: 0 0 50px var(--electric-purple);
+    animation: centralPulse 2s ease-in-out infinite;
+}
+
+@keyframes centralPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 50%;
+    animation: orbitRotate 15s linear infinite;
+}
+
+.orbit-1 {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px;
+    margin-top: -75px;
+}
+
+.orbit-2 {
+    width: 250px;
+    height: 250px;
+    margin-left: -125px;
+    margin-top: -125px;
+    animation-duration: 20s;
+}
+
+.orbit-3 {
+    width: 350px;
+    height: 350px;
+    margin-left: -175px;
+    margin-top: -175px;
+    animation-duration: 25s;
+}
+
+.orbit-4 {
+    width: 450px;
+    height: 450px;
+    margin-left: -225px;
+    margin-top: -225px;
+    animation-duration: 30s;
+}
+
+.orbit-5 {
+    width: 550px;
+    height: 550px;
+    margin-left: -275px;
+    margin-top: -275px;
+    animation-duration: 35s;
+}
+
+@keyframes orbitRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.satellite {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid var(--cosmic-blue);
+    border-radius: 20px;
+    color: var(--cosmic-blue);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    animation: counterRotate 15s linear infinite;
+}
+
+.orbit-2 .satellite {
+    animation-duration: 20s;
+}
+
+.orbit-3 .satellite {
+    animation-duration: 25s;
+}
+
+.orbit-4 .satellite {
+    animation-duration: 30s;
+}
+
+.orbit-5 .satellite {
+    animation-duration: 35s;
+}
+
+@keyframes counterRotate {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(-360deg);
+    }
+}
+
+.satellite.empty {
+    background: rgba(157, 78, 221, 0.1);
+    border-color: var(--electric-purple);
+    color: var(--electric-purple);
+}
+
+/* ===== THOUGHTS SECTION ===== */
+.thoughts-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thought-item {
+    padding: 30px;
+    background: rgba(0, 212, 255, 0.05);
+    border-left: 3px solid var(--cosmic-blue);
+    transition: all 0.3s ease;
+}
+
+.thought-item:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-left-width: 5px;
+    transform: translateX(10px);
+}
+
+.thought-item p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* ===== LAB SECTION ===== */
+.lab-experiments {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.experiment-card {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(157, 78, 221, 0.05) 100%);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 40px;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.experiment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.experiment-card:hover::before {
+    left: 100%;
+}
+
+.experiment-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+}
+
+.experiment-status {
+    display: inline-block;
+    padding: 5px 15px;
+    background: var(--cosmic-blue);
+    color: var(--primary-black);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.experiment-card h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: var(--cosmic-blue);
+    margin-bottom: 15px;
+}
+
+.experiment-card p {
+    color: var(--text-dim);
+    line-height: 1.8;
+}
+
+/* ===== LEGACY SECTION ===== */
+.legacy-content {
+    text-align: center;
+}
+
+.legacy-statement {
+    font-size: 2rem;
+    color: var(--text-light);
+    margin: 60px auto;
+    max-width: 800px;
+    font-style: italic;
+    line-height: 2;
+}
+
+.infinity-symbol {
+    font-size: 8rem;
+    color: var(--electric-purple);
+    margin: 60px 0;
+    animation: infinityGlow 3s ease-in-out infinite;
+}
+
+@keyframes infinityGlow {
+    0%, 100% {
+        text-shadow: 0 0 20px var(--electric-purple);
+    }
+    50% {
+        text-shadow: 0 0 60px var(--electric-purple), 0 0 100px var(--electric-purple);
+    }
+}
+
+.signature {
+    font-size: 1.5rem;
+    color: var(--text-dim);
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* ===== CLOSING SECTION ===== */
+#closing {
+    background: radial-gradient(circle at center, #0a0a1e 0%, #000000 100%);
+}
+
+.mirror-reflection {
+    width: 100%;
+    height: 200px;
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    margin-bottom: 40px;
+    animation: mirrorPulse 4s ease-in-out infinite;
+}
+
+@keyframes mirrorPulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.closing-text {
+    font-size: 2rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.closing-quote {
+    font-size: 1.3rem;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .title-main {
+        font-size: 5rem;
+        letter-spacing: 10px;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .orbit-system {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title-main {
+        font-size: 3rem;
+        letter-spacing: 5px;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .timeline {
+        flex-direction: column;
+    }
+    
+    .projects-constellation {
+        flex-direction: column;
+    }
+    
+    .orbit-system {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .lab-experiments {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-main {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .enter-btn {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+}
