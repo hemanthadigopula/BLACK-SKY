@@ -420,4 +420,187 @@ body {
     .title-main { font-size: 3rem; letter-spacing: 5px; }
     .section-title { font-size: 2.5rem; }
     .timeline { flex-direction: column; }
+
+    /* ===== FRONTIER SECTION ===== */
+.satellite-system {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 80px auto;
+}
+
+.satellite-list {
+    position: absolute;
+    left: -250px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: left;
+}
+
+.satellite-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.satellite-list li {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    padding: 15px 25px;
+    background: var(--glass-light);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.satellite-list li:hover {
+    background: var(--glass-highlight);
+    transform: translateX(10px);
+    box-shadow: 0 4px 16px 0 rgba(255,255,255,0.2);
+}
+
+/* ===== THOUGHTS SECTION ===== */
+.thoughts-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.thought-fragments {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.thought {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    padding: 25px 35px;
+    background: var(--glass-light);
+    border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--glass-highlight);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-style: italic;
+}
+
+.thought:hover {
+    background: var(--glass-highlight);
+    transform: translateX(15px);
+    box-shadow: 0 6px 24px 0 rgba(255,255,255,0.2);
+}
+
+/* ===== LAB SECTION ===== */
+.lab-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.experiments {
+    margin-top: 60px;
+}
+
+.experiment-status {
+    margin-bottom: 50px;
+}
+
+.experiment-status h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.experiment-card {
+    padding: 25px 30px;
+    margin-bottom: 20px;
+    background: var(--glass-light);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.experiment-card:hover {
+    background: var(--glass-highlight);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px 0 rgba(255,255,255,0.2);
+}
+
+.experiment-card h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.experiment-card p {
+    font-size: 1rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+/* ===== LEGACY SECTION ===== */
+.legacy-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legacy-statement {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    line-height: 2;
+    margin-bottom: 40px;
+    font-style: italic;
+    padding: 40px;
+    background: var(--glass-light);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.legacy-statement:hover {
+    background: var(--glass-highlight);
+    box-shadow: 0 8px 32px 0 rgba(255,255,255,0.2);
+}
+
+.signature {
+    font-size: 1.3rem;
+    color: var(--text-dim);
+    margin-top: 30px;
+}
+
+.infinity-symbol {
+    font-size: 4rem;
+    color: var(--text-light);
+    margin: 40px 0;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+/* ===== CLOSING SECTION ===== */
+#closing {
+    background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, #000000 100%);
+}
+
+.closing-content {
+    text-align: center;
+}
+
+.closing-content h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.closing-content p {
+    font-size: 1.3rem;
+    color: var(--text-dim);
+    font-style: italic;
+}
 }
