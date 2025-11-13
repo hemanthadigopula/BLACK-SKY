@@ -101,13 +101,13 @@ body {
 /* Cinematic name styling */
 .name-top,
 .name-bottom {
-    color: #666666;
+    color: #66666 !important;;
     font-weight: 800;
     display: block;
 }
 
 .name-mid {
-    color: #ffffff;
+    color: #fffff !important;;
     font-weight: 800;
     display: block;
 }
