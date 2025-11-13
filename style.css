@@ -101,17 +101,20 @@ body {
 /* Cinematic name styling */
 .name-top,
 .name-bottom {
-    color: #66666 !important;;
+    color: #ffffff !important;
+    opacity: 0.4 !important;
     font-weight: 800;
     display: block;
+    text-align: center;
 }
 
 .name-mid {
-    color: #fffff !important;;
+    color: #ffffff !important;
+    opacity: 1 !important;
     font-weight: 800;
     display: block;
+    text-align: center;
 }
-
 .subtitle {
     font-size: 2rem;
     color: var(--text-dim);
