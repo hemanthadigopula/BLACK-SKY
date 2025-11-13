@@ -267,7 +267,17 @@ window.addEventListener('DOMContentLoaded', () => {
     
     // Mirror effect
     createMirrorEffect();
+
+        
+    // Create 3D objects
+    setTimeout(() => {
+        if (typeof THREE !== 'undefined') {
+            create3DObjects();
+        }
+    }, 1000);
     
+    // Add enhanced interactions
+    addEnhancedInteractions();
     // Project stars interaction
     initProjectStars();
     
@@ -300,4 +310,152 @@ window.addEventListener('resize', () => {
         canvas.style.width = size + 'px';
         canvas.style.height = size + 'px';
     }
+    
+
+// ===== ADD 3D ROTATING OBJECTS =====
+function create3DObjects() {
+    // Create container for 3D objects in sections
+    const sections = ['opening', 'mind', 'creations'];
+    
+    sections.forEach((sectionId, index) => {
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+        
+        const object3DContainer = document.createElement('div');
+        object3DContainer.className = '3d-object-container';
+        object3DContainer.style.position = 'absolute';
+        object3DContainer.style.top = '10%';
+        object3DContainer.style.right = (index * 15 + 5) + '%';
+        object3DContainer.style.width = '150px';
+        object3DContainer.style.height = '150px';
+        object3DContainer.style.zIndex = '0';
+        section.appendChild(object3DContainer);
+        
+        // Create scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        
+        renderer.setSize(150, 150);
+        renderer.setClearColor(0x000000, 0);
+        object3DContainer.appendChild(renderer.domElement);
+        
+        // Create different 3D shapes
+        let geometry, material, mesh;
+        
+        switch(index % 3) {
+            case 0: // Cube
+                geometry = new THREE.BoxGeometry(1, 1, 1);
+                material = new THREE.MeshBasicMaterial({
+                    color: 0xffffff,
+                    wireframe: true,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                break;
+            case 1: // Sphere
+                geometry = new THREE.SphereGeometry(0.7, 32, 32);
+                material = new THREE.MeshBasicMaterial({
+                    color: 0xffffff,
+                    wireframe: true,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                break;
+            case 2: // Torus
+                geometry = new THREE.TorusGeometry(0.7, 0.3, 16, 100);
+                material = new THREE.MeshBasicMaterial({
+                    color: 0xffffff,
+                    wireframe: true,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                break;
+        }
+        
+        mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+        camera.position.z = 2;
+        
+        // Animate
+        function animate() {
+            requestAnimationFrame(animate);
+            mesh.rotation.x += 0.01;
+            mesh.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+    });
+}
+
+// ===== ENHANCED INTERACTIONS =====
+function addEnhancedInteractions() {
+    // Add ripple effect on click
+    document.addEventListener('click', (e) => {
+        const ripple = document.createElement('div');
+        ripple.className = 'ripple-effect';
+        ripple.style.position = 'fixed';
+        ripple.style.left = e.clientX + 'px';
+        ripple.style.top = e.clientY + 'px';
+        ripple.style.width = '10px';
+        ripple.style.height = '10px';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(255,255,255,0.5)';
+        ripple.style.pointerEvents = 'none';
+        ripple.style.transform = 'translate(-50%, -50%)';
+        ripple.style.animation = 'rippleExpand 0.6s ease-out';
+        ripple.style.zIndex = '9999';
+        
+        document.body.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+    });
+    
+    // Add hover glow to all text elements
+    const textElements = document.querySelectorAll('h1, h2, h3, h4, p');
+    textElements.forEach(el => {
+        el.addEventListener('mouseenter', function() {
+            this.style.transition = 'all 0.3s ease';
+            this.style.textShadow = '0 0 20px rgba(255,255,255,0.5)';
+        });
+        el.addEventListener('mouseleave', function() {
+            this.style.textShadow = '';
+        });
+    });
+    
+    // Add tilt effect to cards
+    const cards = document.querySelectorAll('.project-star, .milestone, .experiment-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    });
+}
+
+// Add CSS animations
+const interactionStyle = document.createElement('style');
+interactionStyle.textContent = `
+    @keyframes rippleExpand {
+        to {
+            width: 100px;
+            height: 100px;
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(interactionStyle);
 });
